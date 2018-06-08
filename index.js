@@ -16,7 +16,9 @@ function watchSubmit() {
     // clear out the input
     queryTarget.val("");
     getDataFromApi(query, parseobject);
-    $('.results').html(`Entered Address: ${query}`);
+    
+    $('.results').html(`${query}`);
+    $('.results').prop('hidden', false); 
     $('.js-search-results').html('');
 
   });
@@ -78,12 +80,12 @@ function renderResult(result) {
     $('.js-search-results').append(`    
       <div class ="col-md-4">
       <div class ="result">
-      <h3>${result.name}</h3>
-      <h4>${officialsobject[i].name}</h4>
-      <p>${officialsobject[i].party}</p>
-      <p>${officialsobject[i].phones}</p>
-      ${officialsobject[i].emails ? `<p>${officialsobject[i].emails}</p>` : '' }
-      ${officialsobject[i].urls ? `<a href="${officialsobject[i].urls}">${officialsobject[i].urls}</a>` : ``} 
+      <h3 aria-label="Office">${result.name}</h3>
+      <h4 aria-labelledby="Name">${officialsobject[i].name}</h4>
+      ${officialsobject[i].party ? `<p aria-labelledby="Party">${officialsobject[i].party}</p>` : '' }
+      ${officialsobject[i].phones ? `<p aria-labelledby="Phone Number">${officialsobject[i].phones}</p>` : '' }
+      ${officialsobject[i].emails ? `<p aria-labelledby="Email">${officialsobject[i].emails}</p>` : '' }
+      ${officialsobject[i].urls ? `<a aria-labelledby="Website" href="${officialsobject[i].urls}">${officialsobject[i].urls}</a>` : ``} 
      </div>
 </div>
 `);
@@ -136,6 +138,7 @@ function addressSuccess(data) {
   let thisobj = data.results[0].formatted_address;
   console.log(thisobj);
   $('.results').html(data.results[1].formatted_address);
+      $('.results').prop('hidden', false); 
   $('.js-search-results').html('');
   getDataFromApi(thisobj, parseobject);
 

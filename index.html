@@ -14,46 +14,46 @@
 </head>
 
 <body>
-<div class="container">
-  <main role="main">
+  <div class="container">
     <div class="topbar">
-      <a href="#"><img src="/logo.png"></a>
+      <a href="./"><img src="logo.png" alt="logo"></a>
       <h1>Find My Rep</h1>
       <h5>
         An online tool for finding your elected representatives.
       </h5>
       <form action="#" class="js-search-form">
         <label for="query">
-            <input type="text" class="js-query form-control"  id="Address Bar Input" name="Address Bar Input" aria-label="Address Bar Input" title="Address Bar Input" placeholder="Enter Address">
+            <input type="text" class="js-query form-control"  id="Enter Address" name="Enter Address" aria-label="Enter Address To Lookup" title="Enter Address" placeholder="Enter Address">
             </label>
+        <button type="submit" class="btn btn-primary">Go!</button>
       </form>
       <h6>
         or
       </h6>
       <button type="button" class="btn btn-primary locate">Use My Current Location</button>
-
-      <h2 class="results" aria-live="assertive"></h2>
     </div>
-    <div class="container">
-      <div class="js-search-results row row-eq-height">
-        <div class="intro">
-          <h2>
-            Enter address including Street, City, State and Zip Code.
-            <Br> Or
-            <Br> Click "Use My Current Location"
-          </h2>
-          <h6>
-            (United States Only)
-          </h6>
+    <main role="main">
+      <div class="container">
+        <h2 class="results" aria-live="assertive" hidden></h2>
+        <div class="js-search-results row row-eq-height">
+          <div class="intro">
+            <h2>
+              Enter address including Street, City, State and Zip Code.
+              <Br> Or
+              <Br> Click "Use My Current Location"
+            </h2>
+            <h6>
+              (United States Only)
+            </h6>
+          </div>
         </div>
       </div>
-    </div>
 
 
-  </main>
+    </main>
   </div>
   <script src="index.js"></script>
-  
+
 
 </body>
 
