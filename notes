@@ -1,0 +1,34 @@
+
+https://developers.google.com/civic-information/ -- Rep by location info
+https://api.open.fec.gov/developers/ -- Donor info 
+
+Propublica: 
+Thank you for your request.
+The following key has been issued for Congress API
+KEY: 4CPibrLeOi13u4CLXypICZKswHmWKNg5RJk3qLct 
+
+
+
+Utilizing Propublica and Google Civic API to build a platform where  -- 
+the user will click to locate (and permission) their curent location. 
+It will then bring up their current rep. info. It will then show what things that rep has voted on or contributed to. 
+
+
+
+Find My Rep: 
+View 1 
+User Sees: 
+Enter Address Bar &
+Find My Location Button 
+
+User Action: 
+Enters Address and Submits or Clicks Button
+
+View 2 
+User Sees: 
+District Number 
+Reprentative Information -> including pictures & contact info.  
+
+Reset/Home Button
+
+
