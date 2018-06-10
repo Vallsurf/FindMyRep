@@ -16,9 +16,9 @@ function watchSubmit() {
     // clear out the input
     queryTarget.val("");
     getDataFromApi(query, parseobject);
-    
+
     $('.results').html(`${query}`);
-    $('.results').prop('hidden', false); 
+    $('.results').prop('hidden', false);
     $('.js-search-results').html('');
 
   });
@@ -37,7 +37,6 @@ function getDataFromApi(searchTerm, callback) {
     key: "AIzaSyCD8I3_yEbiRrdX_G1sTrMP3MrxwPk-nTA",
   }
 
-  //$.getJSON(CIVIC_SEARCH_URL, query, callback);
 
   $.ajax({
       url: CIVIC_SEARCH_URL,
@@ -62,15 +61,9 @@ function parseobject(data) {
   office = data.offices;
   officials = data.officials;
   const results = data.offices.slice(2).map((item, index) => renderResult(item));
-
-
-  // $('.js-search-results').html(results);
 }
 
 function renderResult(result) {
-  //   const officialsname = result.officialIndices.map((item, index) => `${officials[item].name}`); 
-  //   const officialsphone = result.officialIndices.map((item, index) => `${officials[item].phones}`); 
-  //   const officialsparty = result.officialIndices.map((item, index) => `${officials[item].party}`); 
   const officialsobject = result.officialIndices.map((item, index) => officials[item]);
   console.log(officialsobject.length);
 
@@ -79,7 +72,7 @@ function renderResult(result) {
     console.log(officialsobject.length);
     $('.js-search-results').append(`    
       <div class ="col-md-4">
-      <div class ="result">
+      <div class ="result" aria-label="result">
       <h3 aria-label="Office">${result.name}</h3>
       <h4 aria-labelledby="Name">${officialsobject[i].name}</h4>
       ${officialsobject[i].party ? `<p aria-labelledby="Party">${officialsobject[i].party}</p>` : '' }
@@ -89,15 +82,6 @@ function renderResult(result) {
      </div>
 </div>
 `);
-
-    //   return `
-    //     <div class ="result">
-    //       <h2>${result.name}</h2>
-    //       <h2>${officialsobject[i].name}</h2>
-    //       <p>${officialsobject[i].party}</p>
-    //       <p>${officialsobject[i].phones}</p>
-    //     </div>
-    //   `;
   }
 }
 
@@ -138,7 +122,7 @@ function addressSuccess(data) {
   let thisobj = data.results[0].formatted_address;
   console.log(thisobj);
   $('.results').html(data.results[1].formatted_address);
-      $('.results').prop('hidden', false); 
+  $('.results').prop('hidden', false);
   $('.js-search-results').html('');
   getDataFromApi(thisobj, parseobject);
 
